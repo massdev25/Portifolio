@@ -39,30 +39,32 @@ a:hover {
 
 /* --- Navegação --- */
 nav {
-    background-color: var(--cor-branco); /* Usando variável de cor */
+    background-color: var(--cor-branco);
     padding: 1rem 2rem;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-between; /* Mantém o nome e o menu nos extremos */
+    align-items: center; /* Alinha verticalmente o nome e o menu (o container do menu) */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--cor-preto); /* Usando variável de cor */
+.menu {
+    display: flex; /* Habilita o Flexbox para o menu */
+    flex-direction: row; /* Organiza os itens do menu horizontalmente */
+    align-items: center; /* Alinha verticalmente os itens do menu (opcional) */
 }
 
 .menu a {
-    margin-left: 2rem;
-    color: var(--cor-texto); /* Usando variável de cor */
+    margin-left: 2rem; /* Adiciona espaço entre os itens horizontalmente */
+    margin-top: 0; /* Remove o espaço superior adicionado para a disposição vertical */
+    color: var(--cor-texto);
     font-weight: 500;
     transition: color 0.3s;
 }
 
-.menu a:hover {
-    color: var(--cor-principal); /* Usando variável de cor */
-}
+/* Opcional: você pode remover esta parte se não precisar mais */
+/* .menu a:first-child {
+    margin-top: 0;
+} */
 
 /* --- Cabeçalho Hero --- */
 .hero {
@@ -80,12 +82,12 @@ h1 {
     font-size: 40px;
     font-style: normal;
     font-weight: 600;
-    height: 260px;
+    height: auto; /* Ajustei a altura para automático para se adaptar ao conteúdo */
     letter-spacing: normal;
     line-height: 52px;
     margin-block-end: 0px;
     margin-block-start: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 15px;
     margin-inline-end: 0px;
     margin-inline-start: 0px;
     margin-left: auto; /* Adicionei esta linha para centralizar horizontalmente */
@@ -117,12 +119,12 @@ h1 {
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    height: 48px;
+    height: auto; /* Ajustei a altura para automático para se adaptar ao conteúdo */
     letter-spacing: normal;
     line-height: 24px;
     margin-block-end: 0px;
     margin-block-start: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 15px;
     margin-inline-end: 0px;
     margin-inline-start: 0px;
     margin-left: auto; /* Adicionei esta linha para centralizar horizontalmente */
@@ -171,7 +173,7 @@ h1 {
 /* Estilos para o botão de contato (whatsapp) */
 .btn-whatsapp {
     align-items: center;
-    align-self: start;
+    align-self: center; /* Centralizei verticalmente o botão */
     background-color: rgba(255, 255, 255, 0);
     border-bottom-color: rgb(255, 255, 255);
     border-bottom-left-radius: 28px;
@@ -198,27 +200,22 @@ h1 {
     box-sizing: border-box;
     color: rgb(255, 255, 255);
     cursor: pointer;
-    display: flex;
+    display: inline-flex; /* Use inline-flex para que o botão não ocupe toda a largura */
     font-family: Roboto, sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
-    grid-column-end: -1;
-    grid-column-start: 1;
-    grid-row-end: -1;
-    grid-row-start: 1;
     height: 56px;
     justify-content: center;
-    justify-self: start;
     letter-spacing: normal;
     line-height: normal;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 0px;
+    margin-bottom: 15px;
+    margin-left: auto; /* Centraliza horizontalmente */
+    margin-right: auto; /* Centraliza horizontalmente */
+    margin-top: 20px; /* Adicionei um pouco de margem superior */
     max-width: 100%;
     min-height: 56px;
-    min-width: 100%;
+    min-width: 164px;
     overflow-x: hidden;
     overflow-y: hidden;
     padding-bottom: 0px;
@@ -249,6 +246,45 @@ h1 {
 }
 
 /* --- Seções --- */
+.galeria {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    overflow-x: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: flex-start; /* Alinha os itens da galeria no topo */
+}
+
+.galeria-item {
+    text-align: center; /* Centraliza o conteúdo dentro de cada item da galeria */
+    display: flex;
+    flex-direction: column; /* Organiza os itens internos em coluna (imagem em cima, texto embaixo) */
+    align-items: stretch; /* Faz com que a caixa de texto se estenda na largura da imagem */
+    width: auto; /* Ajusta a largura do item conforme o conteúdo */
+}
+
+.galeria-item img {
+    display: block;
+    max-width: 100%; /* Garante que a imagem não ultrapasse a largura do container */
+    height: auto;
+    border-radius: 5px 5px 0 0; /* Arredonda apenas as bordas superiores da imagem */
+    margin-bottom: 0; /* Garante que não haja espaço abaixo da imagem */
+}
+
+.galeria-item p {
+    background-color: #313131; /* Cor de fundo da caixa de texto */
+    color: #fff; /* Cor do texto na caixa */
+    padding: 10px; /* Espaçamento interno da caixa de texto */
+    margin-top: 0; /* Garante que não haja espaço acima da caixa de texto */
+    border-radius: 0 0 5px 5px; /* Arredonda apenas as bordas inferiores */
+    font-size: 0.9em;
+    width: 100%; /* Garante que a largura seja 100% do pai */
+    box-sizing: border-box;
+    text-align: center; /* Centraliza o texto novamente */
+    height: auto;
+}
 section {
     padding: 3rem 0;
 }
@@ -320,8 +356,8 @@ footer {
     font-size: 0.95rem;
     line-height: 1.4;
     text-decoration: none;
-    text-align: center; /* Centraliza o texto dentro da coluna */
-   
+    text-align: center;
+
 }
 
 .footer-left .icones-sociais {
@@ -374,7 +410,7 @@ footer {
     border-radius: 5px;
     border: none;
     margin-bottom: 10px;
-    text-align: center; /* Alinha o texto do input à direita */  
+    text-align: center; /* Alinha o texto do input à direita */
 }
 
 .footer-right .btn-footer {
@@ -404,4 +440,3 @@ footer {
 }
 ...
 */
-
